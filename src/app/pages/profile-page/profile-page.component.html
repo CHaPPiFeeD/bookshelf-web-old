@@ -1,8 +1,8 @@
 <section class="profile-container">
   <img src="../../../assets/user_image_default.png" class="profile-image" />
   <div class="info-container">
-    <h3 class="name-title">{{ userProfile.name }}</h3>
-    <p class="description">{{ userProfile.description || ''}}</p>
+    <h3 class="name-title">{{ userProfile.name || "" }}</h3>
+    <p class="description">{{ userProfile.description || "" }}</p>
     <div>
       <button
         mat-button
@@ -20,11 +20,23 @@
     <mat-tab
       [labelClass]="'label'"
       label="own-books {{ '(' + userProfile.books_count + ')' }}"
-      >own books</mat-tab
     >
-    <mat-tab [labelClass]="'label'" label="liked">liked</mat-tab>
-    <mat-tab [labelClass]="'label'" label="reading">reading</mat-tab>
-    <mat-tab [labelClass]="'label'" label="in-feature">in feature</mat-tab>
-    <mat-tab [labelClass]="'label'" label="abandoned">abandoned</mat-tab>
+      <app-book-card-list [bookMark]="BookUserStatus.OWN" />
+    </mat-tab>
+    <mat-tab [labelClass]="'label'" label="liked">
+      <app-book-card-list [bookMark]="BookUserStatus.LIKED"
+    /></mat-tab>
+    <mat-tab [labelClass]="'label'" label="reading">
+      <app-book-card-list [bookMark]="BookUserStatus.READING"
+    /></mat-tab>
+    <mat-tab [labelClass]="'label'" label="in-feature">
+      <app-book-card-list [bookMark]="BookUserStatus.READ"
+    /></mat-tab>
+    <mat-tab [labelClass]="'label'" label="abandoned">
+      <app-book-card-list [bookMark]="BookUserStatus.IN_FEATURE"
+    /></mat-tab>
+    <mat-tab [labelClass]="'label'" label="abandoned">
+      <app-book-card-list [bookMark]="BookUserStatus.ABANDONED"
+    /></mat-tab>
   </mat-tab-group>
 </section>

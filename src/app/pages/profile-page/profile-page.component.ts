@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { IGetUserProfile, UserApiService } from "../../api/user.api.service";
 import { ActivatedRoute, Router } from "@angular/router";
-
+import { BookUserStatus } from "../../components/book-card-list/book-card-list.enum";
 
 @Component({
   selector: 'app-profile-page',
@@ -12,6 +12,7 @@ export class ProfilePageComponent implements OnInit {
   userId!: string;
   userProfile!: IGetUserProfile;
   isSelfUserProfile: boolean = false;
+  BookUserStatus = BookUserStatus
 
   constructor(
     private userApiService: UserApiService,

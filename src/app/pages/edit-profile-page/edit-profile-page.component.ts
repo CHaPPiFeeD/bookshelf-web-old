@@ -24,8 +24,6 @@ export class EditProfilePage implements OnInit {
   ngOnInit(): void {
     this.userApiService.getUserProfile(this.activatedRoute.snapshot.params['id']).subscribe({
       next: (data: IGetUserProfile) => {
-        console.log(data);
-
         this.profileForm.patchValue({
           username: data.name,
           description: data.description || '',

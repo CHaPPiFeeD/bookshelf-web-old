@@ -1,0 +1,9 @@
+<div class="cards-container">
+  <mat-card
+    *ngIf="bookMark === BookUserStatus.OWN"
+    class="card"
+    appearance="outlined"
+  >
+    <button mat-button class="button" (click)="createBook()"><mat-icon>add</mat-icon>create</button>
+  </mat-card>
+</div>

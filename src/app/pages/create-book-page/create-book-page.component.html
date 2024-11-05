@@ -1,0 +1,14 @@
+<section class="form-section">
+  <h1 class="title">create a book</h1>
+  <form class="form" [formGroup]="bookForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <button mat-fab extended type="submit" class="button"><mat-icon>add</mat-icon>create</button>
+  </form>
+</section>

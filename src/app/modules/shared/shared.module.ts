@@ -15,12 +15,17 @@ import { EditProfilePage } from "../../pages/edit-profile-page/edit-profile-page
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatCardModule } from '@angular/material/card';
+import { BookCardListComponent } from "../../components/book-card-list/book-card-list.component";
+import { CreateBookPageComponent } from "../../pages/create-book-page/create-book-page.component";
+import { BookApiService } from "../../api/book.api.service";
 
-const MATERIAL = [MatToolbarModule, MatButtonModule, MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule];
 
-const PAGES = [HomePageComponent, ProfilePageComponent, EditProfilePage];
-const COMPONENTS = [AppComponent, ToolbarComponent];
-const API_SERVICES = [UserApiService];
+const MATERIAL = [MatToolbarModule, MatButtonModule, MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatCardModule];
+
+const PAGES = [HomePageComponent, ProfilePageComponent, EditProfilePage, CreateBookPageComponent];
+const COMPONENTS = [AppComponent, ToolbarComponent, BookCardListComponent];
+const API_SERVICES = [UserApiService, BookApiService];
 
 @NgModule({
   imports: [
