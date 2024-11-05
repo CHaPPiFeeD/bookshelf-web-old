@@ -1,3 +1,25 @@
-<section>
-  
+<section class="main-container">
+  <img src="../../../assets/user_image_default.png" class="profile-image" />
+  <div class="form-container">
+    <button mat-button (click)="back()">
+      <mat-icon>arrow_back</mat-icon>back
+    </button>
+    <h1 class="form-title">Edit profile</h1>
+    <form class="form" [formGroup]="profileForm" (ngSubmit)="submit()">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+
+      <button mat-fab extended>
+        <mat-icon>save_as</mat-icon>
+        save
+      </button>
+    </form>
+  </div>
 </section>

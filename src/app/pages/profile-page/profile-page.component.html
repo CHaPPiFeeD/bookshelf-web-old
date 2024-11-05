@@ -1,13 +1,8 @@
 <section class="profile-container">
   <img src="../../../assets/user_image_default.png" class="profile-image" />
   <div class="info-container">
-    <h3 class="name-title">{{ userProfile?.user_name }}</h3>
-    <p class="description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-      exercitationem omnis nemo accusamus ad, doloremque deleniti quisquam iure
-      sunt? Quam corporis architecto repellat vitae sit animi? Unde, hic!
-      Beatae, excepturi.
-    </p>
+    <h3 class="name-title">{{ userProfile.name }}</h3>
+    <p class="description">{{ userProfile.description || ''}}</p>
     <div>
       <button
         mat-button
@@ -24,7 +19,7 @@
   <mat-tab-group>
     <mat-tab
       [labelClass]="'label'"
-      label="own-books {{ '(' + userProfile?.books_count + ')' }}"
+      label="own-books {{ '(' + userProfile.books_count + ')' }}"
       >own books</mat-tab
     >
     <mat-tab [labelClass]="'label'" label="liked">liked</mat-tab>

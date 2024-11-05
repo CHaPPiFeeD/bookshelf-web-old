@@ -12,8 +12,11 @@ import { UserApiService } from "../../api/user.api.service";
 import { HttpClientModule } from "@angular/common/http";
 import { MatTabsModule } from '@angular/material/tabs';
 import { EditProfilePage } from "../../pages/edit-profile-page/edit-profile-page.component";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from "@angular/forms";
 
-const MATERIAL = [MatToolbarModule, MatButtonModule, MatIconModule, MatTabsModule];
+const MATERIAL = [MatToolbarModule, MatButtonModule, MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule];
 
 const PAGES = [HomePageComponent, ProfilePageComponent, EditProfilePage];
 const COMPONENTS = [AppComponent, ToolbarComponent];
@@ -24,6 +27,7 @@ const API_SERVICES = [UserApiService];
     CommonModule,
     RouterModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ...MATERIAL,
   ],
   declarations: [

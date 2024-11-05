@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { UserApiService } from "../../api/user.api.service";
+import { IGetUserProfile, UserApiService } from "../../api/user.api.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { UserProfileData } from "./profile-page.interface";
 
 
 @Component({
@@ -11,7 +10,7 @@ import { UserProfileData } from "./profile-page.interface";
 })
 export class ProfilePageComponent implements OnInit {
   userId!: string;
-  userProfile!: UserProfileData;
+  userProfile!: IGetUserProfile;
   isSelfUserProfile: boolean = false;
 
   constructor(
