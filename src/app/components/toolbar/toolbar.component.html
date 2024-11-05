@@ -1,10 +1,9 @@
 <mat-toolbar class="toolbar">
   <div class="container">
-    <div class="logo">
+    <div mat-button class="logo" [routerLink]="'/'">
       BOOKSHELF
     </div>
     <nav class="nav">
-      <button mat-button [routerLink]="'/'"><mat-icon>home</mat-icon></button>
       <button mat-button *ngIf="isLoggined" (click)="toProfile()">
         <mat-icon>person</mat-icon>
       </button>

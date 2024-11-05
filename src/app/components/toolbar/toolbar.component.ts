@@ -18,7 +18,7 @@ export class ToolbarComponent {
   }
 
   toProfile() {
-    this.router.navigate(['/profile', 'bdbd2297-e09f-41f3-affb-82d996eafb3e'])
+    this.router.navigate(['/profile', localStorage.getItem('user_id')])
   }
 
   login() {

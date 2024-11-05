@@ -18,7 +18,6 @@ export class AuthGuard {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     try {
-      console.log(route, state);
       const token = this.keycloakService.getKeycloakInstance().token;
       if (!token) throw new Error('Token is required!');
       const data = parseJwt(token);
@@ -28,7 +27,6 @@ export class AuthGuard {
       }
       return true;
     } catch (e: any) {
-      console.log(e.message);
       this.keycloakService.login({ redirectUri: 'http://localhost:4200' + state.url });
       return false;
     }

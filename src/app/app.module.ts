@@ -3,13 +3,12 @@ import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { KeycloakAngularModule, KeycloakService } from "keycloak-angular";
 import { initializeKeycloak } from "./auth/keycloak.init";
-import { HomePageComponent } from "./components/home-page/home-page.component";
-import { ProfilePageComponent } from "./components/profile-page/profile-page.component";
 import { RouterModule } from '@angular/router';
 import { routes } from "./app.routes";
 import { AuthGuard } from "./guards/auth.guard";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { SharedModule } from "./modules/shared/shared.module";
+import { OwnershipGuard } from "./guards/ownership.guard";
 
 @NgModule({
   declarations: [
@@ -22,6 +21,7 @@ import { SharedModule } from "./modules/shared/shared.module";
   ],
   providers: [
     AuthGuard,
+    OwnershipGuard,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,

@@ -14,7 +14,12 @@ export const parseJwt = (token: string) => {
 
     return JSON.parse(jsonPayload);
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return null;
   }
 };
+
+export const getEmailFromJwt = (token: string): null | string => {
+  const payload = parseJwt(token);
+  return payload?.email;
+}

@@ -1,0 +1,29 @@
+.profile-container {
+  padding: 32px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+
+  .profile-image {
+    -webkit-user-drag: none;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+  }
+
+  .info-container {
+    .edit-profile-button {
+      color: black !important;
+      border-color: black !important;
+    }
+
+    .name-title {
+      font-size: 32px;
+    }
+
+    .description {}
+  }
+
+}
+
+ 
