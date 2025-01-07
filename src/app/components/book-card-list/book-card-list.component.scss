@@ -2,10 +2,18 @@
   display: flex;
   flex-direction: row;
   padding-top: 4px;
+  gap: 8px;
 
   .card {
     width: 200px;
     height: 300px;
+
+    .book-name {
+      font-style: bold;
+      font-size: 16px;
+      padding: 4px;
+      align-content: end;
+    }
 
     .button {
       height: 100%;
