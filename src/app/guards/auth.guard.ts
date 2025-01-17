@@ -25,6 +25,7 @@ export class AuthGuard {
       if (Date.now() >= data.exp * 1000) {
         throw new Error('Expired token!');
       }
+      localStorage.setItem('token', token);
       return true;
     } catch (e: any) {
       this.keycloakService.login({ redirectUri: 'http://localhost:4200' + state.url });

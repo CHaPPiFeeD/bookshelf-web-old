@@ -11,11 +11,17 @@ export class BookApiService {
   constructor(private http: HttpClient) { }
 
   createBook(payload: CreateBookPayload): Observable<Object> {
-    return this.http.post(this.apiRoute, payload);
+    return this.http.post(this.apiRoute, payload).pipe(map((res: any) => res.data));
   }
 
   getAllBooks(params: GetAllBooksQuery) {
     return this.http.get(this.apiRoute, { params }).pipe(map((res: any) => res.data));
+  }
+
+  uploadCover(bookId: string, file: File): Observable<Object> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    return this.http.post(`${this.apiRoute}/${bookId}/cover/upload`, formData).pipe(map((res: any) => res.data));
   }
 }
 

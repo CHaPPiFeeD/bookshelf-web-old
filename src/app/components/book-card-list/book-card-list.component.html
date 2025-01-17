@@ -1,5 +1,14 @@
 <div class="cards-container">
-  <mat-card *ngFor="let book of books" class="card" appearance="outlined">
+  <mat-card
+    *ngFor="let book of books"
+    class="card"
+    [ngStyle]="
+      book.coverUrl
+        ? { 'background-image': 'url(' + book.coverUrl + ')' }
+        : null
+    "
+    appearance="outlined"
+  >
     <h5 class="book-name">{{ book.name }}</h5>
   </mat-card>
   <mat-card

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { BookUserStatus } from "./book-card-list.enum";
 import { ActivatedRoute, Router } from "@angular/router";
 import { BookApiService, GetAllBooksQuery } from "../../api/book.api.service";
+import { FileApiService } from "../../api/file.api.service";
 
 @Component({
   selector: 'app-book-card-list',
@@ -15,11 +16,10 @@ export class BookCardListComponent implements OnInit {
 
   constructor(
     private bookApiService: BookApiService,
+    private fileApiService: FileApiService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-  ) { 
-   
-  }
+  ) { }
 
   ngOnInit(): void {
     this.loadBookList();

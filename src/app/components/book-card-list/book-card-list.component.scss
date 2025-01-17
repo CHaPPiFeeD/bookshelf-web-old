@@ -1,12 +1,15 @@
 .cards-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding-top: 4px;
   gap: 8px;
 
   .card {
-    width: 200px;
-    height: 300px;
+    width: 232px;
+    height: 348px;
+    background-position: center;
+    background-size: cover;
 
     .book-name {
       font-style: bold;

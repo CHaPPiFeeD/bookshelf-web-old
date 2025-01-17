@@ -1,14 +1,89 @@
 <section class="form-section">
   <h1 class="title">create a book</h1>
-  <form class="form" [formGroup]="bookForm" (ngSubmit)="submit()">
-    <mat-form-field>
-      <mat-label>name</mat-label>
-      <input matInput formControlName="name" />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>description</mat-label>
-      <textarea matInput formControlName="description"></textarea>
-    </mat-form-field>
-    <button mat-fab extended type="submit" class="button"><mat-icon>add</mat-icon>create</button>
-  </form>
+  <mat-stepper linear #stepper [selectedIndex]="selectedStep">
+    <mat-step [stepControl]="firstFormGroup" [editable]="false">
+      <form class="form" [formGroup]="firstFormGroup" (ngSubmit)="createBook()">
+        <ng-template matStepLabel>Set book information</ng-template>
+        <mat-form-field>
+          <mat-label>name</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error *ngIf="firstFormGroup.controls.name.errors?.['required']">
+            Name is required
+          </mat-error>
+          <mat-error *ngIf="firstFormGroup.controls.name.errors?.['minlength']"
+            >The name must be at least 4 characters long.</mat-error
+          >
+          <mat-error *ngIf="firstFormGroup.controls.name.errors?.['maxlength']"
+            >The name must be no more than 64 characters.</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+          <mat-error
+            *ngIf="firstFormGroup.controls.description.errors?.['required']"
+            >Description is required</mat-error
+          >
+          <mat-error
+            *ngIf="firstFormGroup.controls.description.errors?.['minlength']"
+            >The description must be at least 16 characters long.</mat-error
+          >
+          <mat-error
+            *ngIf="firstFormGroup.controls.description.errors?.['maxlength']"
+            >The name must be no more than 1024 characters.</mat-error
+          >
+        </mat-form-field>
+        <button
+          mat-fab
+          extended
+          type="submit"
+          class="button"
+          [disabled]="firstFormGroup.status === 'INVALID'"
+        >
+          <mat-icon>arrow_forward</mat-icon>next
+        </button>
+      </form>
+    </mat-step>
+    <mat-step [editable]="false">
+      <ng-template matStepLabel>Set book cover</ng-template>
+      <form [formGroup]="secondFormGroup" (submit)="changeStep(1)" class="form">
+        <mat-card
+          appearance="raised"
+          class="card"
+          [ngStyle]="
+            coverUrl ? { 'background-image': 'url(' + coverUrl + ')' } : null
+          "
+        >
+          <input
+            id="upload"
+            type="file"
+            accept="image/jpeg,image/png"
+            hidden
+            (change)="selectFile($event)"
+          />
+          <label
+            for="upload"
+            class="upload-label"
+            [ngClass]="coverUrl ? 'uploaded' : null"
+          >
+            <span>Select file</span>
+          </label>
+        </mat-card>
+        <button
+          mat-fab
+          extended
+          type="submit"
+          class="button"
+          [disabled]="secondFormGroup.status === 'INVALID' || !coverUrl"
+        >
+          <mat-icon>arrow_forward</mat-icon>next
+        </button>
+      </form>
+    </mat-step>
+    <mat-step [editable]="false">
+      <ng-template matStepLabel>Result</ng-template>
+      <h3>Success!</h3>
+      <button mat-fab extended class="button" (click)="toProfile()">go to profile</button>
+    </mat-step>
+  </mat-stepper>
 </section>

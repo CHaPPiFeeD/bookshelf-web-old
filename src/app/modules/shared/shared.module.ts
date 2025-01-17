@@ -19,13 +19,15 @@ import { MatCardModule } from '@angular/material/card';
 import { BookCardListComponent } from "../../components/book-card-list/book-card-list.component";
 import { CreateBookPageComponent } from "../../pages/create-book-page/create-book-page.component";
 import { BookApiService } from "../../api/book.api.service";
+import { MatStepperModule } from '@angular/material/stepper';
+import { FileApiService } from "../../api/file.api.service";
 
 
-const MATERIAL = [MatToolbarModule, MatButtonModule, MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatCardModule];
+const MATERIAL = [MatToolbarModule, MatButtonModule, MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatCardModule, MatStepperModule];
 
 const PAGES = [HomePageComponent, ProfilePageComponent, EditProfilePage, CreateBookPageComponent];
 const COMPONENTS = [AppComponent, ToolbarComponent, BookCardListComponent];
-const API_SERVICES = [UserApiService, BookApiService];
+const API_SERVICES = [UserApiService, BookApiService, FileApiService];
 
 @NgModule({
   imports: [
